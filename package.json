@@ -1,0 +1,12 @@
+{
+  "name": "cmm221",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/nikikonikoki/cmm221.git",
+  "author": "nikikonikoki <nicharee.r@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.1",
+    "twig": "^1.10.5"
+  }
+}
