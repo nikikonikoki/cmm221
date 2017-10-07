@@ -1,45 +1,25 @@
-
-<!DOCTYPE html> <!--บอกว่าเป็นเฮดที่เอ็มแอล-->
-<html lang="en"> <!--บอกว่าใช้ภาษาหลักเป็นอิ้ง-->
-<head>
-	<meta charset="utf-8"> <!--คอนฟลิคชาแรกเตอร์ กำหนดว่าให้เว็บเราใช้ utf-8-->
-	<title>CMM 19</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css"> <!--link css กับ web เรา ใช้ Bulma เหมาะกับการเขียนเฟรมเวิร์คฟ้อนเอนมากกว่า-->
+{% extends 'layout/base.twig' %} 
+{% block stylesheet %}
 	<link rel="stylesheet" type="text/css" href="/assets/home.css">
-</head>
-<body>
-	<header>
-		<div class="has-text-centered"> <!--div อยู่ในหใวดดิสเพลย์ที่เป็นบล๊อค-->
-		<img src="/assets/images/logo.png" width="145" height="auto"> <!--/assets/image สำหรับบอกสถานที่กรณีที่มันอยู่คนล่ะโฟลเด้อกับงานเรา-->
-		</div>
-		<nav class="navbar-tabs">
-			<a href="#" class="navbar-item"> work </a>
-			<a href="#" class="navbar-item"> wark </a>
-			<a href="#" class="navbar-item"> werk </a>
-			<a href="#" class="navbar-item"> wirk </a>
-			<a href="#" class="navbar-item"> wurk </a>
-			<a href="#" class="navbar-item"> work </a>
-			<a href="#" class="navbar-item"> wark </a>
-			<a href="#" class="navbar-item"> wirk </a>
-		</nav>
+{% endblock %}
+
+{% block content %}
 		<main>
 			<section class="banner">
 				<div class="highlight">
 					<div class="columns is-marginless">
-						<div class="column highlight-item">
-							<h1>สวนนิกิโกะ</h1>
+						<div class="column highlight-item" style="background-image : url({{ highlight.url }});"> <!--เขียนสไตล์ลงไปจะเหมือน thumbnail-->
+							<h1>{{ highlight.title }}</h1> <!--ใส่ข้อความเสยๆ-->
 					</div>
 				</div>
 				
 				<div class="thumbnail">
-						<div class="columns is-marginless">
-							<div class="column thumbnail-item is-paddingless" style="background-image: url(/assets/images/home/banner/thumbnail-1.jpg);">
-							 หมา 
+					<div class="columns is-marginless">
+						{% for item in thumbnail %}
+							<div class="column thumbnail-item is-paddingless" style="background-image: url({{ item.url }});">
+								{{ item.title }}
 							</div>
-							<div class="column thumbnail-item is-paddingless" style="background-image: url(/assets/images/home/banner/thumbnail-2.jpg);"> แมว </div>
-							<div class="column thumbnail-item is-paddingless" style="background-image: url(/assets/images/home/banner/thumbnail-3.jpg);"> กา </div>
-							<div class="column thumbnail-item is-paddingless" style="background-image: url(/assets/images/home/banner/thumbnail-4.jpg);"> งู </div>
-						</div>
+						{% endfor %}
 					</div>
 				</div>
 			</section> 
@@ -157,6 +137,4 @@
 				</div>
 			</section>
 		</main> 
-	</header>
-</body>
-</html>
+{% endblock %}
